@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<span>Username: </span> <span th:text="${user.username}"/>
+<p/>
+<span th:text="${user.firstName}"/>
+<span> </span>
+<span th:text="${user.lastName}"/>
+<p/>
+<span th:text="${user.age}"/><span> years old</span>
+<p/>
+<span>Id: </span><span th:text="${user.id}"/>
+<p/>
+<form action="/logout" method="POST">
+    <input type="submit" value="Logout" />
+</form>
+</body>
+</html>
