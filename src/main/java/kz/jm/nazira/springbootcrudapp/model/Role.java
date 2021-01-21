@@ -36,7 +36,7 @@ public class Role implements GrantedAuthority {
     }
 
     public String getRole() {
-        return role;
+        return role.replace("ROLE_","");
     }
 
     public void setRole(String role) {
@@ -53,6 +53,6 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return getRole();
+        return role;
     }
 }

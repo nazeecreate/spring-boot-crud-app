@@ -43,12 +43,19 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void save(User user, String makeAdmin) {
+    public void save(User user, List<String> roleSelect) {
         Set<Role> roles = new HashSet<>();
-        roles.add(new Role(1L, "ROLE_USER"));
-        if (makeAdmin != null) {
-            roles.add(new Role(2L, "ROLE_ADMIN"));
+
+        if (roleSelect != null) {
+            for (String role : roleSelect) {
+                if (role.equals("USER")) {
+                    roles.add(new Role(1L, role));
+                } else if (role.equals("ADMIN")) {
+                    roles.add(new Role(2L, role));
+                }
+            }
         }
+
         user.setRoles(roles);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);

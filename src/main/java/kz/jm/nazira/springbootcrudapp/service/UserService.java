@@ -12,7 +12,7 @@ public interface UserService {
 
     public void update(Long id, User updatedUser);
 
-    public void save(User user, String makeAdmin);
+    public void save(User user, List<String> roleSelect);
 
     public void deleteById(Long id);
 

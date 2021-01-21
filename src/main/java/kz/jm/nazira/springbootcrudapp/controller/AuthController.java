@@ -17,6 +17,11 @@ public class AuthController {
         this.userRepository = userRepository;
     }
 
+    @GetMapping("/")
+    public String getLoginPage(){
+        return "others/login";
+    }
+
     @GetMapping("/user")
     public String getUserPage(Model model, Principal principal){
         model.addAttribute("user", userRepository.findByUsername(principal.getName()));
