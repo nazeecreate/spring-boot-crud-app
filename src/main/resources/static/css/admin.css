@@ -1,0 +1,63 @@
+.navtext {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}
+
+nav {
+    padding-left: 0.6rem;
+}
+
+.logout-button {
+    outline: none;
+    border-style: none;
+}
+
+.logout-button:hover, .logout-button:active, .logout-button:focus {
+    outline: none;
+    border-style: none;
+    background-color: transparent;
+}
+
+.logout-form{
+    margin-left: auto;
+}
+
+.left-navbar{
+    padding: 1rem 0 0 0;
+}
+
+.right-side{
+    background-color: #f8f9fa;
+    padding-top: 1rem;
+}
+
+.panel-container{
+    background-color: white;
+}
+
+.panel-header{
+    background-color: #f7f7f7;
+    padding: 0.5rem 1.5rem;
+}
+
+.min-100 {
+    min-height: 100vh;
+}
+
+.form-div{
+    width: 37%;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.form-modal{
+    text-align: center;
+    font-weight: bold;
+    width: 60%;
+    margin: auto;
+}
+
+
+
+
+

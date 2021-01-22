@@ -32,8 +32,21 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void update(Long id, User updatedUser) {
+    public void update(Long id, User updatedUser, List<String> roleSelect) {
         User user = findById(id);
+        Set<Role> roles = new HashSet<>();
+
+        if (roleSelect != null) {
+            for (String role : roleSelect) {
+                if (role.equals("USER")) {
+                    roles.add(new Role(1L, role));
+                } else if (role.equals("ADMIN")) {
+                    roles.add(new Role(2L, role));
+                }
+            }
+        }
+
+        user.setRoles(roles);
         user.setFirstName(updatedUser.getFirstName());
         user.setLastName(updatedUser.getLastName());
         user.setAge(updatedUser.getAge());

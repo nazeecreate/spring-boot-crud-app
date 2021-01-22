@@ -25,10 +25,10 @@ public class UsersController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@PathVariable("id") Long id, @ModelAttribute("user") User user){
+    public String update(@PathVariable("id") Long id, @ModelAttribute("user") User user, @RequestParam(value = "roleSelectModal", required = false) List<String> roleSelect){
         System.out.println(user.getFirstName() + user.getLastName() + user.getPassword());
 
-       // userService.update(id,user);
+        userService.update(id,user,roleSelect);
         return "redirect:/admin";
     }
 
