@@ -10,13 +10,10 @@ public interface UserService {
 
     public User findById(Long id);
 
-    public void update(Long id, User updatedUser, List<String> roleSelect);
-
-    public void save(User user, List<String> roleSelect);
+    public void save(User user);
 
     public void deleteById(Long id);
 
     public UserDetails findByUsername(String username);
 
-    //ok
 }

@@ -1,5 +1,6 @@
 package kz.jm.nazira.springbootcrudapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class Role implements GrantedAuthority {
 
     private String role;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable (name="user_roles",
             joinColumns=@JoinColumn (name="role_id"),
@@ -55,4 +57,13 @@ public class Role implements GrantedAuthority {
     public String getAuthority() {
         return role;
     }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }
+

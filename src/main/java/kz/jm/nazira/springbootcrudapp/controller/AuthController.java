@@ -26,15 +26,12 @@ public class AuthController {
     }
 
     @GetMapping("/user")
-    public String getUserPage(Model model, Principal principal){
-        model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
+    public String getUserPage(){
         return "users/user";
     }
 
     @GetMapping("/admin")
-    public String index(Model model, Principal principal, @ModelAttribute("newUser") User newUser){
-        model.addAttribute("users", userService.findAll());
-        model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
+    public String getAdminPage(){
         return "users/admin";
     }
 

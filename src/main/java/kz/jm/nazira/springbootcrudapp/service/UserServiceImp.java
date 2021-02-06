@@ -31,45 +31,9 @@ public class UserServiceImp implements UserService {
         return userRepository.findById(id).get();
     }
 
-    @Override
-    public void update(Long id, User updatedUser, List<String> roleSelect) {
-        User user = findById(id);
-        Set<Role> roles = new HashSet<>();
-
-        if (roleSelect != null) {
-            for (String role : roleSelect) {
-                if (role.equals("USER")) {
-                    roles.add(new Role(1L, role));
-                } else if (role.equals("ADMIN")) {
-                    roles.add(new Role(2L, role));
-                }
-            }
-        }
-
-        user.setRoles(roles);
-        user.setFirstName(updatedUser.getFirstName());
-        user.setLastName(updatedUser.getLastName());
-        user.setAge(updatedUser.getAge());
-        user.setUsername(updatedUser.getUsername());
-        user.setPassword(bCryptPasswordEncoder.encode(updatedUser.getPassword()));
-        userRepository.save(user);
-    }
 
     @Override
-    public void save(User user, List<String> roleSelect) {
-        Set<Role> roles = new HashSet<>();
-
-        if (roleSelect != null) {
-            for (String role : roleSelect) {
-                if (role.equals("USER")) {
-                    roles.add(new Role(1L, role));
-                } else if (role.equals("ADMIN")) {
-                    roles.add(new Role(2L, role));
-                }
-            }
-        }
-
-        user.setRoles(roles);
+    public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }

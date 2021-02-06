@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers( "/favicon.ico").permitAll()
+                .antMatchers( "/resources/**").permitAll()
                 .antMatchers("/login").anonymous()
                 .antMatchers("/user").access("hasRole('USER')")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')").anyRequest().authenticated();
